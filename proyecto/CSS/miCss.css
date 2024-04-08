@@ -115,3 +115,15 @@ body{
     }
 
 }
+
+.Cuenta a{
+
+    display: inline-block;  
+  
+    margin: 10px 10px 0px 900px;
+  
+    min-height: 30px;
+  
+    color: black;
+  
+  }
