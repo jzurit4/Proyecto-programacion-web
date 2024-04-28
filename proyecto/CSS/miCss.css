@@ -47,6 +47,7 @@ body{
     background-color: #24262b;
     padding: 80px 0;
     width: 100%;
+    text-align:center;
 }
 
 .footer-row {
@@ -59,6 +60,7 @@ body{
 .footer-links {
     width: 25%;
     padding: 0 15px;
+    text-align:center;
 }
 
 .footer-links h4 {
@@ -69,9 +71,16 @@ body{
     border-bottom: 2px solid #00c3ff;
     padding-bottom: 10px;
     display:inline-block;
-    text-align: end;
+    
 }
 
+.btn{
+    padding-bottom: 25px;
+    color: #BBBBBB;
+    text-decoration: none;
+    
+    
+}
 .footer-links ul li a {
     font-size: 18px;
     text-decoration: none;
@@ -79,6 +88,7 @@ body{
     display: block;
     margin-bottom: 15px;
     transition: all .3s ease;
+    padding-right: 30px;
 }
 
 .footer-links ul li a:hover{
@@ -104,6 +114,23 @@ body{
     background-color: #00c3ff;
 }
 
+.iconos{
+    display: flex;
+    
+
+}
+.cuenta {
+    width: 30px;
+    
+    font-size:larger;
+    
+}
+
+.carro {
+    font-size: medium;
+    width: 40px;
+
+}
 
 @media(max-width:991px){
     .footer-row{
@@ -116,14 +143,5 @@ body{
 
 }
 
-.Cuenta a{
 
-    display: inline-block;  
-  
-    margin: 10px 10px 0px 900px;
-  
-    min-height: 30px;
-  
-    color: black;
-  
-  }
+
