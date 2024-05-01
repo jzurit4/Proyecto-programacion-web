@@ -9,15 +9,18 @@
   <link rel="stylesheet" href="CSS/miCss.css">
   <link rel="stylesheet" href="JS/carrito.js">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
   <title>Inicio</title>
+  <link rel="icon" href="imagenes/Logo.png">
 </head>
 
 <body>
   <!--nav bar-->
   <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Librarium</a>
+      <a class="navbar-brand" href="#">
+        <img src="imagenes/Logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+        Librarium
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -80,12 +83,27 @@
         </ul>
         <div class="iconos">
           <li class="cuenta">
-            <a href="cuenta.html"><i class="bi bi-person" style="color:rgb(67, 68, 68);" ></i></a>
+            <a href="cuenta.html"><i class="bi bi-person" style="color:rgb(67, 68, 68);"></i></a>
           </li>
           <li class="carro">
-            <a href="comprar.html"><i class="bi bi-cart2" style="color:rgb(67, 68, 68);"></i><span id="cuenta-carrito">0</span></a>
+            <a href="#" id="carrito">
+              <i class="bi bi-cart2" style="color:rgb(67, 68, 68);">
+                  <div class="buy-card">
+                    <ul class="nav-card">
+                        <li id="carro__li">Imagen</li>
+                        <li id="carro__li">Nombre</li>
+                        <li id="carro__li">Precio</li>
+                        <li id="carro__li">Cantidad</li>
+                    </ul>
+                    <div class="lista-de-compras">
+                      
+                    </div>
+                    <button id="vaciar_carro">VACIAR CARRITO</button>
+                  </div>
+              </i>
+            </a>
           </li>
-          </div>
+        </div>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Buscar Titulo, Autor, Isbn..."
             aria-label="Search">
@@ -95,29 +113,6 @@
     </div>
   </nav>
   <!--fin navbar-->
-  <!--MODAL-->
-  <div class="modal" id="reg-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Afiliate</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto animi, sunt, dolore voluptatum officia
-            commodi eos officiis aut reiciendis nostrum voluptas a, blanditiis facere ex aperiam! Facere natus dolorum
-            voluptatibus!</p>
-          <label for="modal-email" class="form-label">Tu correo electronico:</label>
-          <input type="email" class="form-control" id="modal-email" placeholder="e.g.mario@example.com" required>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-primary">Afiliar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--fin MODAL-->
   <!--carousel-->
   <div id="carouselMyExample" class="carousel slide" data-bs-ride="carousel">
     <!--en el carousel-inner se indica lo que se mostrará-->
@@ -140,116 +135,100 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+  <br id="Ofertas">
   <!--fc-->
-  <a name="Ofertas"></a>
-  <hr class="rounded mb-3">
-  <div class="secciones">
-    <br>
-    <h1>Ofertas</h1>
-    <br>
-    <hr class="rounded mb-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card">
-            <img src="img/71DPYK-e2ML (1).jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Los hermanos Karamazov</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Fiódor Dostoyevski</h6>
-              <p class="card-text">La novela gira en torno a las relaciones perversas que se establecen entre el padre y
-                los hijos hasta que este es asesinado y su presunto asesino, Dmitri, juzgado y condenado.</p>
-              <p class="card-text">$11.000</p>
-              <a href="libro1.html" class="card-link">Mas informacion</a>
-              <a href="comprar.html" class="card-link">Comprar</a>
-            </div>
-          </div>
+  <!--cards-->
+  <div class="containers">
+    <center>
+      <h1 class="texto">Ofertas</h1>
+    </center>
+    <div class="card__container" id="lista-compra">
+      <article class="card__article">
+        <img src="imagenes/71DPYK-e2ML.jpg" alt="" class="card__img">
+
+        <div class="card__data">
+          <span class="card__description">Fyodor Dostoevsky</span>
+          <h2 class="card__title">Los hermanos Karamazov</h2>
+          <p class="precio">$11.000</p>
+          <a href="#" class="card__button">Mas info</a>
+          <button class="card__button2" data-id="1">add to cart</button>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card">
-            <img src="img/el_principito_enseñanzas_trabajo.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">El Principito</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Antoine de Saint-Exupéry</h6>
-              <p class="card-text">La historia se centra en un pequeño príncipe que realiza una travesía por el
-                universo. En este viaje descubre la extraña forma en que los adultos ven la vida y comprende el valor
-                del amor y la amistad.</p>
-              <p class="card-text">$11.000</p>
-              <a href="#" class="card-link">Mas informacion</a>
-              <a href="comprar.html" class="card-link">Comprar</a>
-            </div>
-          </div>
+      </article>
+
+      <article class="card__article">
+        <img src="imagenes/71DPYK-e2ML.jpg" alt="" class="card__img">
+
+        <div class="card__data">
+          <span class="card__description">Fyodor Dostoevsky</span>
+          <h2 class="card__title">Los hermanos Karamazov</h2>
+          <p class="precio">$11.000</p>
+          <a href="#" class="card__button">Mas info</a>
+          <button class="card__button2" data-id="2">add to cart</button>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card">
-            <img src="img/16075997705699.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Cien años de soledad</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Gabriel García Márquez</h6>
-              <p class="card-text">Entre la boda de José Arcadio Buendía con Amelia Iguarán hasta la maldición de
-                Aureliano Babilonia transcurre todo un siglo. Cien años de soledad para una estirpe única y fantástica.
-              </p>
-              <p class="card-text">$11.000</p>
-              <a href="#" class="card-link">Mas informacion</a>
-              <a href="comprar.html" class="card-link">Comprar</a>
-            </div>
-          </div>
+      </article>
+
+      <article class="card__article">
+        <img src="imagenes/71DPYK-e2ML.jpg" alt="" class="card__img">
+
+        <div class="card__data">
+          <span class="card__description">Fyodor Dostoevsky</span>
+          <h2 class="card__title">Los hermanos Karamazov</h2>
+          <p class="precio">$11.000</p>
+          <a href="#" class="card__button">Mas info</a>
+          <button class="card__button2" data-id="3">add to cart</button>
         </div>
-      </div>
-    </div>
-    <br>
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card">
-            <img src="img/don quijote.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Don Quijote de la Mancha</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Miguel de Cervantes</h6>
-              <p class="card-text">El ingenioso hidalgo don Quijote de la Mancha narra las aventuras de Alonso Quijano,
-                un hidalgo pobre que de tanto leer novelas de caballería acaba enloqueciendo y creyendo ser un caballero
-                andante.</p>
-              <p class="card-text">$11.000</p>
-              <a href="#" class="card-link">Mas informacion</a>
-              <a href="comprar.html" class="card-link">Comprar</a>
-            </div>
-          </div>
+      </article>
+      
+      <article class="card__article">
+        <img src="imagenes/71DPYK-e2ML.jpg" alt="" class="card__img">
+
+        <div class="card__data">
+          <span class="card__description">Fyodor Dostoevsky</span>
+          <h2 class="card__title">Los hermanos Karamazov</h2>
+          <p class="precio">$11.000</p>
+          <a href="#" class="card__button">Mas info</a>
+          <button class="card__button2" data-id="4">add to cart</button>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card">
-            <img src="img/978849490630.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">El retrato de Dorian Gray</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Oscar Wilde</h6>
-              <p class="card-text">Dorian desea permanecer joven y bello, y que, a cambio, su retrato sea el que
-                envejezca. Seducido por un aristócrata cínico, Dorian disfruta del placer y los excesos, lleva a otras
-                personas a la perdición.</p>
-              <p class="card-text">$11.000</p>
-              <a href="#" class="card-link">Mas informacion</a>
-              <a href="comprar.html" class="card-link">Comprar</a>
-            </div>
-          </div>
+      </article>
+      <article class="card__article">
+        <img src="imagenes/71DPYK-e2ML.jpg" alt="" class="card__img">
+
+        <div class="card__data">
+          <span class="card__description">Fyodor Dostoevsky</span>
+          <h2 class="card__title">Los hermanos Karamazov</h2>
+          <p class="precio">$11.000</p>
+          <a href="#" class="card__button">Mas info</a>
+          <button class="card__button2" data-id="5">add to cart</button>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card">
-            <img src="img/Hamlet.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Hamlet</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">William Shakespeare</h6>
-              <p class="card-text">Hamlet, transcurre en Dinamarca y relata cómo el príncipe Hamlet lleva a cabo su
-                venganza sobre su tío Claudio quien asesinase al padre de Hamlet, el rey, y ostenta la corona usurpada
-                así como nupcias con Gertrudis, la madre de Hamlet.</p>
-              <p class="card-text">$11.000</p>
-              <a href="#" class="card-link">Mas informacion</a>
-              <a href="comprar.html" class="card-link">Comprar</a>
-            </div>
-          </div>
+      </article>
+      <article class="card__article">
+        <img src="imagenes/71DPYK-e2ML.jpg" alt="" class="card__img">
+
+        <div class="card__data">
+          <span class="card__description">Fyodor Dostoevsky</span>
+          <h2 class="card__title">Los hermanos Karamazov</h2>
+          <p class="precio">$11.000</p>
+          <a href="#" class="card__button">Mas info</a>
+          <button class="card__button2" data-id="6">add to cart</button>
         </div>
-      </div>
+      </article>
     </div>
   </div>
   <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
-  <!--Intento de footer-->
+  <!--fin cards-->
+  <!--Footer-->
   <div>
     <footer class="footer">
       <div class="container">
@@ -260,6 +239,7 @@
               <li><a href="Nosotros.html">Nosotros</a></li>
               <li><a href="#">Nuestros servicios</a></li>
               <li><a href="#">Politica de privacidad</a></li>
+              <li><a href="formulario.html">Afiliate</a></li>
             </ul>
           </div>
           <div class="footer-links">
@@ -295,7 +275,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-    
+
   <script src="JS/carrito.js"></script>
 </body>
 

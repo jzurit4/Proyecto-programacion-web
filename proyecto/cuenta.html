@@ -6,7 +6,9 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="JS/script.js">
+    <link rel="stylesheet" href="JS/formulario.js">
     <title>Cuenta</title>
+    <link rel="icon" href="imagenes/Logo.png">
 </head>
 <body>  
   <!--registrar-->
@@ -18,7 +20,7 @@
                 <input type="button" value="Iniciar Sesión" id="sign-in">
                 <br>
                 <br>
-                <a class="btn btn-primary" href="index.html" role="button">Continuar como invitado</a>
+                <a class="btn btn-primary" href="index.html" role="button">Modo Invitado</a>
             </div>
         </div>
         <div class="form-information">
@@ -32,17 +34,17 @@
                 <form class="form">
                     <label>
                         <i class='bx bx-user'></i>
-                        <input type="text" placeholder="Nombre completo" required>
+                        <input type="text" id="nombre" placeholder="Nombre completo" required>
                     </label>
                     <label>
                         <i class='bx bx-envelope' ></i>
-                        <input type="email" placeholder="Correo electronico" required>
+                        <input type="email" id="email" placeholder="Correo electronico" required>
                     </label>
                     <label>
                         <i class='bx bx-lock-alt' ></i>
                         <input type="password" id="password" placeholder="Contraseña" required>
                     </label>
-                    <button type="submit" class="btn btn-primary">Registrarse</button>
+                    <input type="submit" id="submit" value="Registrarse"></input>
                 </form>
             </div>
         </div>
@@ -56,7 +58,7 @@
                 <input type="button" value="Registrarse" id="sign-up">
                 <br>
                 <br>
-                <a class="btn btn-primary" href="index.html" role="button">Continuar como invitado</a>
+                <a class="btn btn-primary" href="index.html" role="button">Modo Invitado</a>
             </div>
         </div>
         <div class="form-information">
@@ -70,18 +72,19 @@
                 <form class="form">
                     <label>
                         <i class='bx bx-envelope' ></i>
-                        <input type="email" placeholder="Correo electronico" required>
+                        <input type="email" id="LogEmail" placeholder="Correo electronico" required>
                     </label>
                     <label>
                         <i class='bx bx-lock-alt' ></i>
-                        <input type="password" placeholder="Contraseña" required>
+                        <input type="password" id="LogPassword" placeholder="Contraseña" required>
                     </label>
-                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    <input type="submit" id="LogSubmit" value="Iniciar Sesión"></input>
                     
                 </form>
             </div>
         </div>
     </div>
     <script src="JS/script.js"></script>
+    <script src="JS/formulario.js"></script>
 </body>
 </html>
