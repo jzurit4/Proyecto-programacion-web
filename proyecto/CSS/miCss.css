@@ -234,6 +234,8 @@ body{
     }
 }
 /*fin efectos cartas*/
+
+
 /*cartas responsivas*/
 @media screen and (max-width: 320px) {
     .containers{
@@ -243,6 +245,10 @@ body{
     .card__data{
         width: 250px;
         padding: 1rem;
+    }
+
+    .card__img{
+        width: 280px;
     }
 }
 
