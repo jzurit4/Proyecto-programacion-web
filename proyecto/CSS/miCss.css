@@ -43,7 +43,7 @@ body{
 
 .carro i:hover > .buy-card{
     width: 400px;
-    height: 700px;
+    height: 500px;
     position: absolute;
     right: 100px;
     background-color: #fff;
