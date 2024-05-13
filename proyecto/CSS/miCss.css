@@ -236,6 +236,68 @@ body{
 /*fin efectos cartas*/
 
 
+@media screen and (max-width: 320px) {
+    .carro i:hover > .buy-card{
+        width: 250px;
+        height: 300px;
+        position: absolute;
+        right: 50px;
+        background-color: #fff;
+    }
+    
+    .nav-card li{
+        list-style: none;
+        padding: 0.7rem;
+        font-weight: bold;
+        font-size: 0.7rem;
+        transform: translateX(-60%);
+    }
+
+    .lista-de-compras img{
+        width: 60px;
+        padding-right: 1px;
+    }
+    
+    .lista-de-compras p{
+        width: 80px;
+        font-size: 0.7rem;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+
+    .carro i:hover > .buy-card{
+        width: 280px;
+        height: 360px;
+        position: absolute;
+        right: 450px;
+        background-color: #fff;
+    }
+    
+    .nav-card li{
+        list-style: none;
+        padding: 1rem;
+        font-weight: bold;
+        font-size: 0.7rem;
+        transform: translateX(-60%);
+    }
+
+    .lista-de-compras img{
+        width: 60px;
+        padding-right: 1px;
+    }
+    
+    .lista-de-compras p{
+        width: 80px;
+        font-size: 0.7rem;
+        padding: 0.3rem;
+    }
+
+}
+
+/* fn cr*/
+
 /*cartas responsivas*/
 @media screen and (max-width: 320px) {
     .containers{
@@ -261,21 +323,18 @@ body{
 }
 
 @media screen and (min-width: 1120px){
-    .containers{
-        height: 100vh;
-    }
-
+   
     .card__container{
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(5 , 1fr);
     }
 
     .card__img{
-        width: 348px;
+        width: 200px;
     }
 
     .card__data{
-        width: 316px;
-        padding-inline: 2.5rem;
+        width: 180px;
+        padding-inline: 1.5rem;
     }
 }
 
