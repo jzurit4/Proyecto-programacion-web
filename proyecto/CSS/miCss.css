@@ -68,13 +68,11 @@ body{
     place-items: center;
     margin-inline: 1.5rem;
     padding-block: 5rem;
-    margin-bottom: 50%;
 }
 
 .card__container{
     display: grid;
     row-gap: 3.5rem;
-
 }
 
 .card__article{
@@ -83,7 +81,7 @@ body{
 }
 
 .card__img{
-    width: 380px;
+    width: 328px;
     border-radius: 1.5rem;
 }
 
@@ -164,7 +162,6 @@ body{
     text-align: center;
     padding: 10px 0 0 0;
     border: solid thin gray;
-    
 }
 
 .carro i:hover .buy-card > .lista-de-compras div{
@@ -239,6 +236,68 @@ body{
 /*fin efectos cartas*/
 
 
+@media screen and (max-width: 320px) {
+    .carro i:hover > .buy-card{
+        width: 250px;
+        height: 300px;
+        position: absolute;
+        right: 50px;
+        background-color: #fff;
+    }
+    
+    .nav-card li{
+        list-style: none;
+        padding: 0.7rem;
+        font-weight: bold;
+        font-size: 0.7rem;
+        transform: translateX(-60%);
+    }
+
+    .lista-de-compras img{
+        width: 60px;
+        padding-right: 1px;
+    }
+    
+    .lista-de-compras p{
+        width: 80px;
+        font-size: 0.7rem;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+
+    .carro i:hover > .buy-card{
+        width: 280px;
+        height: 360px;
+        position: absolute;
+        right: 450px;
+        background-color: #fff;
+    }
+    
+    .nav-card li{
+        list-style: none;
+        padding: 1rem;
+        font-weight: bold;
+        font-size: 0.7rem;
+        transform: translateX(-60%);
+    }
+
+    .lista-de-compras img{
+        width: 60px;
+        padding-right: 1px;
+    }
+    
+    .lista-de-compras p{
+        width: 80px;
+        font-size: 0.7rem;
+        padding: 0.3rem;
+    }
+
+}
+
+/* fn cr*/
+
 /*cartas responsivas*/
 @media screen and (max-width: 320px) {
     .containers{
@@ -264,21 +323,18 @@ body{
 }
 
 @media screen and (min-width: 1120px){
-    .containers{
-        height: 100vh;
-    }
-
+   
     .card__container{
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(5 , 1fr);
     }
 
     .card__img{
-        width: 250px;
+        width: 200px;
     }
 
     .card__data{
-        width: 316px;
-        padding-inline: 2.5rem;
+        width: 180px;
+        padding-inline: 1.5rem;
     }
 }
 
@@ -312,8 +368,7 @@ body{
 
 .footer {
     
-    position:absolute;
-    
+    position: absolute;
     background-color: #24262b;
     padding: 80px 0;
     width: 100%;
@@ -416,6 +471,9 @@ body{
 
 }
 
+
+
+
 .containerN2{
     display: grid;
     place-items: center;
@@ -446,3 +504,59 @@ body{
     padding-left: 20px;
 }
 
+.contenedor{
+    margin: 0;
+    width: 90%;
+    padding: 10px 20px;
+    margin-top: 60px;
+}
+
+.sobreimg{
+    flex: 1;
+    margin-right: 20px;
+    overflow: hidden;
+}
+.sobreimg img{
+    max-width: 100%;
+    
+    margin-left: 200px;
+    height: 500px;
+    display: block;
+    transition: 0.5s ease;
+}
+
+.sobreimg:hover img{
+    transform: scale(1.2);
+}
+
+.contenedor h1{
+    font-size: 40px;
+    color: #000;
+    margin-bottom: 0px;
+    position: relative;
+}
+
+.contenedor h3{
+    font-size: 17px;
+    color: #006afe;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.contenedor h4{
+    font-size: 20px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.contenedor h5{
+    font-size: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    margin-top: 50px;
+}
+
+.contenedor p{
+    margin-bottom: 5px;
+
+}
