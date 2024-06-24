@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Producto
 
 # Create your views here.
 
@@ -20,7 +21,11 @@ def formulario(request):
     return render(request, 'app/formulario.html')
 
 def juvenil(request):
-    return render(request, 'app/juvenil.html')
+    productos = Producto.objects.all()
+    data = {
+        'productos': productos
+    }
+    return render(request, 'app/juvenil.html', data)
 
 def libro1(request):
     return render(request, 'app/libro1.html')

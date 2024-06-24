@@ -120,43 +120,27 @@
     <center>
       <h1 class="texto">Libros juveniles e Infantiles</h1>
     </center>
-    <div class="card__container" id="lista-compra">
-      <article class="card__article">
-        <img src="{% static 'app/imagenes/globo rojo.png' %}" alt="" class="card__img">
+    <div class="productos">
+      {%for p in productos %}
+      <div class="producto">
+        <div class="card__container" id="lista-compra">
 
-        <div class="card__data">
-          <span class="card__description">Silke Meier</span>
-          <h2 class="card__title">¿Por qué se fue mi globo rojo?</h2>
-          <p class="precio">$11.000</p>
-          <a href="#" class="card__button">Mas info</a>
-          <button class="card__button2" data-id="1">add to cart</button>
+          <article class="card__article">
+            <img src="{% static 'app/imagenes/El_principito (1).jpg' %}" alt="" class="card__img">
+
+            <div class="card__data">
+              <span class="card__description">{{ p.autor | capfirst }}</span>
+              <h2 class="card__title">El Principito</h2>
+              <p class="precio">$11.000</p>
+              <a href="#" class="card__button">Mas info</a>
+              <button class="card__button2" data-id="2">add to cart</button>
+            </div>
+          </article>  
+
         </div>
-      </article>
-
-      <article class="card__article">
-        <img src="{% static 'app/imagenes/El_principito (1).jpg' %}" alt="" class="card__img">
-
-        <div class="card__data">
-          <span class="card__description">Antoine de Saint-Exupéry</span>
-          <h2 class="card__title">El Principito</h2>
-          <p class="precio">$11.000</p>
-          <a href="#" class="card__button">Mas info</a>
-          <button class="card__button2" data-id="2">add to cart</button>
-        </div>
-      </article>
-
-      <article class="card__article">
-        <img src="{% static 'app/imagenes/el mundo de sofia (1).jpg' %}" alt="" class="card__img">
-
-        <div class="card__data">
-          <span class="card__description">Jostein Gaarder</span>
-          <h2 class="card__title">El mundo de Sofía</h2>
-          <p class="precio">$11.000</p>
-          <a href="#" class="card__button">Mas info</a>
-          <button class="card__button2" data-id="3">add to cart</button>
-        </div>
-      </article>
-    </div>
+      </div>
+      {% endfor %}
+    </div>  
   </div>
   <!--fin cards-->
   <!--Footer-->
