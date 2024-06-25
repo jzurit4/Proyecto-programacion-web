@@ -1,0 +1,263 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+crossorigin="anonymous"></script>
+<script src="JS/carrito.js"></script>
+<link rel="stylesheet" href="JS/carrito.js">
+{% endblock %}
+
+{% block css %}
+
+
+<link rel="stylesheet" href="CSS/miCss.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+{% endblock %}
+
+{% block carousel %}
+  <!--carousel-->
+  <div id="carouselMyExample" class="carousel slide" data-bs-ride="carousel">
+    <!--en el carousel-inner se indica lo que se mostrará-->
+    <div class="carousel-inner">
+      <!--por cada imágen necesito un item e indico cual es la primera con active-->
+      <div class="carousel-item active" data-bs-interval="5000">
+        <!--si quiero le indico el tipo de display class="d-block w-100"-->
+        <img src="{% static 'app/img/anuncio6.jpg' %}" class="imgCarrousel" alt="...">
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+        <img src="{% static 'app/imagenes/ventas.png' %}" class="imgCarrousel" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselMyExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselMyExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  {% endblock %}
+  {% block contenido %}
+    <br id="Ofertas"> 
+    <nav>
+        <!--cards-->
+        <div class="containers">
+          <center>
+            <h1 class="texto">Ofertas</h1>
+          </center>
+          <div class="card__container" id="lista-compra">
+            <article class="card__article">
+              <img src="{% static 'app/imagenes/kara.jpg' %}" alt="" class="card__img">
+    
+              <div class="card__data">
+                <span class="card__description">Fyodor Dostoevsky</span>
+                <h2 class="card__title">Los hermanos Karamazov</h2>
+                <p class="precio">$11.000</p>
+                <a href="{% url 'masinfo' %}" class="card__button">Mas info</a>
+                <button class="card__button2" data-id="1">add to cart</button>
+              </div>
+            </article>
+    
+            <article class="card__article">
+              <img src="{% static 'app/imagenes/el mundo de sofia (1).jpg' %}" alt="" class="card__img">
+      
+              <div class="card__data">
+                <span class="card__description">Jostein Gaarder</span>
+                <h2 class="card__title">El mundo de Sofía</h2>
+                <p class="precio">$11.000</p>
+                <a href="masinformacion/mundo.html" class="card__button">Mas info</a>
+                <button class="card__button2" data-id="3">add to cart</button>
+              </div>
+            </article>
+    
+            <article class="card__article">
+              <img src="{% static 'app/imagenes/veinte neruda.jpeg' %}" alt="" class="card__img">
+      
+              <div class="card__data">
+                <span class="card__description">Pablo Neruda</span>
+                <h2 class="card__title">Veinte poemas de amor y una canción desesperada</h2>
+                <p class="precio">$11.000</p>
+                <a href="#" class="card__button">Mas info</a>
+                <button class="card__button2" data-id="1">add to cart</button>
+              </div>
+            </article>
+            
+          </div>
+          <br id="Novedades">
+          <br>
+          <br>
+          <!-- NOVEDADES -->
+          <center>
+            <h1 class="texto">Novedades</h1>
+          </center>
+          <div class="card__container" id="lista-compra">
+            <article class="card__article">
+              <img src="{% static 'app/img/naranjameca.jpg' %}" alt="" class="card__img">
+    
+              <div class="card__data">
+                <span class="card__description">Antoine de Saint-Exupéry</span>
+                <h2 class="card__title">El Principito</h2>
+                <p class="precio">$11.000</p>
+                <a href="libro1.html" class="card__button">Mas info</a>
+                <button class="card__button2" data-id="1">add to cart</button>
+              </div>
+            </article>
+    
+            <article class="card__article">
+              <img src="imagenes/pedro-lemebel-tengo-miedo-torero (1).jpg" alt="" class="card__img">
+    
+              <div class="card__data">
+                <span class="card__description">Pedro Lemebel</span>
+                <h2 class="card__title">tengo miedo torero</h2>
+                <p class="precio">$11.000</p>
+                <a href="#" class="card__button">Mas info</a>
+                <button class="card__button2" data-id="2">add to cart</button>
+              </div>
+            </article>
+    
+            <article class="card__article">
+              <img src="imagenes/habitos (1).jpg" alt="" class="card__img">
+      
+              <div class="card__data">
+                <span class="card__description">Stephen R. Covey</span>
+                <h2 class="card__title">Los 7 hábitos de la gente altamente efectiva</h2>
+                <p class="precio">$11.000</p>
+                <a href="#" class="card__button">Mas info</a>
+                <button class="card__button2" data-id="1">add to cart</button>
+              </div>
+            </article>
+    
+          </div>
+          <br id="Destacados">
+          <br>
+          <br>
+          <!-- Destacados -->
+          <center>
+            <h1 class="texto">Destacados</h1>
+          </center>
+          <div class="card__container" id="lista-compra">
+            <article class="card__article">
+              <img src="{% static 'app/imagenes/de-la-montana-y-el-amor-978-84-9829-267-1.jpg' %}" alt="" class="card__img">
+    
+              <div class="card__data">
+                <span class="card__description">Antoine de Saint-Exupéry</span>
+                <h2 class="card__title">El Principito</h2>
+                <p class="precio">$11.000</p>
+                <a href="libro1.html" class="card__button">Mas info</a>
+                <button class="card__button2" data-id="1">add to cart</button>
+              </div>
+            </article>
+    
+            <article class="card__article">
+              <img src="imagenes/c28e1fc13e44159317c60027dd8bd09c.jpg" alt="" class="card__img">
+    
+              <div class="card__data">
+                <span class="card__description">Antoine de Saint-Exupéry</span>
+                <h2 class="card__title">El Principito</h2>
+                <p class="precio">$11.000</p>
+                <a href="libro1.html" class="card__button">Mas info</a>
+                <button class="card__button2" data-id="1">add to cart</button>
+              </div>
+            </article>
+    
+            <article class="card__article">
+              <img src="imagenes/el-obsceno-pajaro-de-la-noche (1).jpg" alt="" class="card__img">
+    
+              <div class="card__data">
+                <span class="card__description">Antoine de Saint-Exupéry</span>
+                <h2 class="card__title">El Principito</h2>
+                <p class="precio">$11.000</p>
+                <a href="libro1.html" class="card__button">Mas info</a>
+                <button class="card__button2" data-id="1">add to cart</button>
+              </div>
+            </article>
+        </div>
+    
+        <br id="Libros mas vendidos">
+          <br>
+          <br>
+          <!-- Libros mas vendidos -->
+          <center>
+            <h1 class="texto">Libros mas vendidos</h1>
+          </center>
+          <div class="card__container" id="lista-compra">
+            <article class="card__article">
+              <img src="imagenes/1.4.-El-tigre-1-660x1024.jpg" alt="" class="card__img">
+    
+              <div class="card__data">
+                <span class="card__description">Antoine de Saint-Exupéry</span>
+                <h2 class="card__title">El Principito</h2>
+                <p class="precio">$11.000</p>
+                <a href="libro1.html" class="card__button">Mas info</a>
+                <button class="card__button2" data-id="1">add to cart</button>
+              </div>
+            </article>
+    
+            <article class="card__article">
+              <img src="imagenes/9effd465ad2ff1eb3fd38dfc627d23a4.jpg" alt="" class="card__img">
+    
+              <div class="card__data">
+                <span class="card__description">Antoine de Saint-Exupéry</span>
+                <h2 class="card__title">El Principito</h2>
+                <p class="precio">$11.000</p>
+                <a href="libro1.html" class="card__button">Mas info</a>
+                <button class="card__button2" data-id="1">add to cart</button>
+              </div>
+            </article>
+          </div>
+    
+          <br id="Preventas y Exclusivos">
+          <br>
+          <br>
+          <!-- Preventas y Exclusivos-->
+          <center>
+            <h1 class="texto">Preventas y Exclusivos</h1>
+          </center>
+          <div class="card__container" id="lista-compra">
+            <article class="card__article">
+              <img src="imagenes/Portada-Laleydelmashombre-WMagazin-e1672189675551.jpg" alt="" class="card__img">
+    
+              <div class="card__data">
+                <span class="card__description">Antoine de Saint-Exupéry</span>
+                <h2 class="card__title">El Principito</h2>
+                <p class="precio">$11.000</p>
+                <a href="libro1.html" class="card__button">Mas info</a>
+                <button class="card__button2" data-id="1">add to cart</button>
+              </div>
+            </article>
+    
+            <article class="card__article">
+              <img src="imagenes/1698763141-916bNzcGD0L.jpg" alt="" class="card__img">
+    
+              <div class="card__data">
+                <span class="card__description">Antoine de Saint-Exupéry</span>
+                <h2 class="card__title">El Principito</h2>
+                <p class="precio">$11.000</p>
+                <a href="libro1.html" class="card__button">Mas info</a>
+                <button class="card__button2" data-id="1">add to cart</button>
+              </div>
+            </article>
+    
+            <article class="card__article">
+              <img src="imagenes/9780261102217-thumbnail.jpg" alt="" class="card__img">
+    
+              <div class="card__data">
+                <span class="card__description">Antoine de Saint-Exupéry</span>
+                <h2 class="card__title">El Principito</h2>
+                <p class="precio">$11.000</p>
+                <a href="libro1.html" class="card__button">Mas info</a>
+                <button class="card__button2" data-id="1">add to cart</button>
+              </div>
+            </article>
+          </div>          
+        </div>
+      </nav>
+      <br>
+
+{% endblock %}
