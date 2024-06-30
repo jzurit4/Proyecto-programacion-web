@@ -1,11 +1,15 @@
 from django.shortcuts import render
 from .models import Producto
+from .forms import ContactoForm
 
 # Create your views here.
 
 def home(request):
-    return render(request, 'app/index.html')
-
+    productos = Producto.objects.all()
+    data = {
+        'productos': productos
+    }
+    return render(request, 'app/index.html',data)
 
 def comprar(request):
     return render(request, 'app/comprar.html')
@@ -18,7 +22,19 @@ def cuenta(request):
     return render(request, 'app/cuenta.html')
 
 def formulario(request):
-    return render(request, 'app/formulario.html')
+    data = {
+        'form': ContactoForm()
+    }
+    if request.method == 'POST':
+        formulario = ContactoForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"]="Mensaje enviado!"
+
+        else:
+            data['form'] = formulario
+            
+    return render(request, 'app/formulario.html',data)
 
 def juvenil(request):
     productos = Producto.objects.all()

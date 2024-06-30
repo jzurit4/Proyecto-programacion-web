@@ -117,29 +117,28 @@
   <!--fin navbar-->
   <!--cards-->
   <div class="containers">
-    <center>
-      <h1 class="texto">Libros juveniles e Infantiles</h1>
-    </center>
-    <div class="productos">
-      {%for p in productos %}
-      <div class="producto">
-        <div class="card__container" id="lista-compra">
+      <center>
+        <h1 class="texto">Libros juveniles e infantiles</h1>
+      </center>
+      {%load humanize%}
+      
+      <div class="card__container" id="lista-compra">
+        {%for p in productos %}
+              <article class="card__article">
+                <img src="{{ p.imagen.url}}" alt="" class="card__img">
 
-          <article class="card__article">
-            <img src="{% static 'app/imagenes/El_principito (1).jpg' %}" alt="" class="card__img">
-
-            <div class="card__data">
-              <span class="card__description">{{ p.autor | capfirst }}</span>
-              <h2 class="card__title">El Principito</h2>
-              <p class="precio">$11.000</p>
-              <a href="#" class="card__button">Mas info</a>
-              <button class="card__button2" data-id="2">add to cart</button>
-            </div>
-          </article>  
-
-        </div>
+                <div class="card__data">
+                  <span class="card__description">{{p.autor | capfirst}}</span>
+                  <h2 class="card__title">{{p.titulo | title}}</h2>
+                  <p class="precio">${{p.precio | intcomma}}</p>
+                  <a href="{% url 'libro1' %}" class="card__button">Mas info</a>
+                  <button class="card__button2" data-id="1">add to cart</button>
+                </div>
+              </article>
+        {% endfor %}
+        
       </div>
-      {% endfor %}
+      
     </div>  
   </div>
   <!--fin cards-->

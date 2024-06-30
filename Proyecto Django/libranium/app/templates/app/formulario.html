@@ -116,25 +116,19 @@
     </div>
   </nav>
   <!--fin navbar-->
-  <div class="container2">
-    <form action="">
-      <div class="mb-3">
-        <label class="form-label" for="name">Nombre</label>
-        <input placeholder="Ingresar su nombre" class="form-control" type="text" name="name" type="text" id="name">
-      </div>
+  <div class="container">
 
-      <div class="mb-3">
-        <label class="form-label" for="email">Email</label>
-        <input placeholder="Ingresar su email" class="form-control" type="email" name="email" type="email" id="email">
+      <form action="" id="formulario_contacto" method="post">
 
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label" for="description">Descripcion</label>
-        <textarea class="form-control" placeholder="Ingresar una descripcion" name="" id="description" cols="30"
-          rows="10"></textarea>
-      </div>
-    </form>
+        {% csrf_token %}
+        {{form}}
+        <br>
+          <input class="btn btn-primary" type="submit" name="btnEnviar" id="btnEnviar" value="Enviar">
+        </div>
+        <br>
+        {{mensaje}}
+      </form>
+    </div>  
   </div>
   <!--Footer-->
   <footer class="footer">

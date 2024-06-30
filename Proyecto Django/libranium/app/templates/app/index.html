@@ -57,26 +57,6 @@
                 <hr class="dropdown-divider">
               </li>
               <li><a class="dropdown-item" href="{% url 'poesia' %}">Poesia</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Clasicos</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Cuentos</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Mangas</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Historia y Geografia</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Deporte</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -145,64 +125,23 @@
       <center>
         <h1 class="texto">Ofertas</h1>
       </center>
+      {%load humanize%}
+      
       <div class="card__container" id="lista-compra">
-        <article class="card__article">
-          <img src="{% static 'app/imagenes/kara.jpg' %}" alt="" class="card__img">
+        {%for p in productos %}
+          <article class="card__article">
+            <img src="{{ p.imagen.url}}" alt="" class="card__img">
 
-          <div class="card__data">
-            <span class="card__description">Fyodor Dostoevsky</span>
-            <h2 class="card__title">Los hermanos Karamazov</h2>
-            <p class="precio">$11.000</p>
-            <a href="{% url 'libro1' %}" class="card__button">Mas info</a>
-            <button class="card__button2" data-id="1">add to cart</button>
-          </div>
-        </article>
-
-        <article class="card__article">
-          <img src="{% static 'app/imagenes/el mundo de sofia (1).jpg' %}" alt="" class="card__img">
-  
-          <div class="card__data">
-            <span class="card__description">Jostein Gaarder</span>
-            <h2 class="card__title">El mundo de Sofía</h2>
-            <p class="precio">$11.000</p>
-            <a href="#" class="card__button">Mas info</a>
-            <button class="card__button2" data-id="3">add to cart</button>
-          </div>
-        </article>
-
-        <article class="card__article">
-          <img src="{% static 'app/imagenes/veinte neruda.jpeg' %}" alt="" class="card__img">
-  
-          <div class="card__data">
-            <span class="card__description">Pablo Neruda</span>
-            <h2 class="card__title">Veinte poemas de amor y una canción desesperada</h2>
-            <p class="precio">$11.000</p>
-            <a href="#" class="card__button">Mas info</a>
-            <button class="card__button2" data-id="1">add to cart</button>
-          </div>
-        </article>
-        <article class="card__article">
-          <img src="{% static 'app/imagenes/el-obsceno-pajaro-de-la-noche (1).jpg' %}" alt="" class="card__img">
-  
-          <div class="card__data">
-            <span class="card__description">José Donoso</span>
-            <h2 class="card__title">El obsceno pájaro de la noche</h2>
-            <p class="precio">$11.000</p>
-            <a href="#" class="card__button">Mas info</a>
-            <button class="card__button2" data-id="1">add to cart</button>
-          </div>
-        </article>
-        <article class="card__article">
-          <img src="{% static 'app/imagenes/ham.jpg' %}" alt="" class="card__img">
-
-          <div class="card__data">
-            <span class="card__description">William Shakespeare</span>
-            <h2 class="card__title">Hamlet</h2>
-            <p class="precio">$11.000</p>
-            <a href="#" class="card__button">Mas info</a>
-            <button class="card__button2" data-id="3">add to cart</button>
-          </div>
-        </article>
+            <div class="card__data">
+              <span class="card__description">{{p.autor | capfirst}}</span>
+              <h2 class="card__title">{{p.titulo | title}}</h2>
+              <p class="precio">${{p.precio | intcomma}}</p>
+              <a href="{% url 'libro1' %}" class="card__button">Mas info</a>
+              <button class="card__button2" data-id="1">add to cart</button>
+            </div>
+          </article>
+        {% endfor %}
+        
       </div>
       <br id="Novedades">
       <br>
@@ -211,64 +150,23 @@
       <center>
         <h1 class="texto">Novedades</h1>
       </center>
+      {%load humanize%}
+      
       <div class="card__container" id="lista-compra">
-        <article class="card__article">
-          <img src="{% static 'app/imagenes/El_principito (1).jpg' %}" alt="" class="card__img">
+        {%for p in productos %}
+            <article class="card__article">
+              <img src="{{ p.imagen.url}}" alt="" class="card__img">
 
-          <div class="card__data">
-            <span class="card__description">Antoine de Saint-Exupéry</span>
-            <h2 class="card__title">El Principito</h2>
-            <p class="precio">$11.000</p>
-            <a href="{% url 'libro1' %}'" class="card__button">Mas info</a>
-            <button class="card__button2" data-id="1">add to cart</button>
-          </div>
-        </article>
-
-        <article class="card__article">
-          <img src="{% static 'app/imagenes/pedro-lemebel-tengo-miedo-torero (1).jpg' %}" alt="" class="card__img">
-
-          <div class="card__data">
-            <span class="card__description">Pedro Lemebel</span>
-            <h2 class="card__title">tengo miedo torero</h2>
-            <p class="precio">$11.000</p>
-            <a href="#" class="card__button">Mas info</a>
-            <button class="card__button2" data-id="2">add to cart</button>
-          </div>
-        </article>
-
-        <article class="card__article">
-          <img src="{% static 'app/imagenes/habitos (1).jpg' %}" alt="" class="card__img">
-  
-          <div class="card__data">
-            <span class="card__description">Stephen R. Covey</span>
-            <h2 class="card__title">Los 7 hábitos de la gente altamente efectiva</h2>
-            <p class="precio">$11.000</p>
-            <a href="#" class="card__button">Mas info</a>
-            <button class="card__button2" data-id="1">add to cart</button>
-          </div>
-        </article>
-        <article class="card__article">
-          <img src="{% static 'app/imagenes/globo rojo.png' %}" alt="" class="card__img">
-  
-          <div class="card__data">
-            <span class="card__description">Silke Meier</span>
-            <h2 class="card__title">¿Por qué se fue mi globo rojo?</h2>
-            <p class="precio">$11.000</p>
-            <a href="#" class="card__button">Mas info</a>
-            <button class="card__button2" data-id="1">add to cart</button>
-          </div>
-        </article>
-        <article class="card__article">
-          <img src="{% static 'app/imagenes/la-casa-de-los-espiritus (1).jpg' %}" alt="" class="card__img">
-  
-          <div class="card__data">
-            <span class="card__description">Isabel Allende</span>
-            <h2 class="card__title">La casa de los espiritus</h2>
-            <p class="precio">$11.000</p>
-            <a href="#" class="card__button">Mas info</a>
-            <button class="card__button2" data-id="3">add to cart</button>
-          </div>
-        </article>
+              <div class="card__data">
+                <span class="card__description">{{p.autor | capfirst}}</span>
+                <h2 class="card__title">{{p.titulo | title}}</h2>
+                <p class="precio">${{p.precio | intcomma}}</p>
+                <a href="{% url 'libro1' %}" class="card__button">Mas info</a>
+                <button class="card__button2" data-id="1">add to cart</button>
+              </div>
+            </article>
+        {% endfor %}
+        
       </div>
     </div>
   </nav>
