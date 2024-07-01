@@ -1,14 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Producto
-from .forms import ContactoForm, CustomUserCreationForm, ProductoForm
-from django.contrib.auth import authenticate, login
-from django.contrib import messages
+from .models import Libro
+from .forms import ContactoForm, CustomUserCreationForm, LibroForm
+from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required, permission_required
 # Create your views here.
 
 def home(request):
-    productos = Producto.objects.all()
+    productos = Libro.objects.all() 
     data = {
-        'productos': productos
+        'productos':productos
     }
     return render(request, 'app/index.html',data)
 
@@ -39,7 +39,7 @@ def formulario(request):
     return render(request, 'app/formulario.html',data)
 
 def juvenil(request):
-    productos = Producto.objects.all()
+    productos = Libro.objects.all()
     data = {
         'productos': productos
     }
@@ -78,39 +78,52 @@ def registro(request):
         data["form"] = formulario
     return render(request, 'registration/registro.html', data)
 
+@permission_required('app.add_libro')
+def agregar_producto(request):
 
-def agregarProducto(request):
     data = {
-        'form': ProductoForm()
+        'form': LibroForm()
     }
+
     if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST, files=request.FILES)
+        formulario = LibroForm(data=request.POST, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
-            data["mensaje"] = "Producto agregado correctamente!"
+            data["mensaje"] = "guardado correctamente"
         else:
             data["form"] = formulario
-    return render(request, 'app/produc/agregar.html',data)
+    
+    return render(request, 'app/produc/agregar.html', data)
 
+@permission_required('app.view_libro')
 def listar_productos(request):
-    productos = Producto.objects.all()
+    productos = Libro.objects.all()
+
     data = {
-        'productos':productos
+        'productos': productos
     }
+
     return render(request, 'app/produc/listar.html',data)
 
-
+@permission_required('app.change_libro')
 def modificar_producto(request, id):
 
-    producto = get_object_or_404(Producto, id=id)
-    
+    producto = get_object_or_404(Libro, id=id)
+
     data = {
-        'form':ProductoForm(instance=producto)
+        'form': LibroForm(instance=producto)
     }
 
     if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        formulario = LibroForm(data=request.POST, instance=producto, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
             return redirect(to="listar_productos")
-    return render(request, 'app/produc/editar.html',data)
+        data["form"] = formulario
+    return render(request,'app/produc/modificar.html', data)
+
+@permission_required('app.delete_libro')
+def eliminar_producto(request, id):
+    producto = get_object_or_404(Libro, id=id)
+    producto.delete()
+    return redirect(to="listar_productos")
