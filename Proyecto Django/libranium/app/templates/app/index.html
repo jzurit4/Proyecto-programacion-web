@@ -81,11 +81,12 @@
           </li>
         </ul>
         <div class="iconos">
+          
           <li class="cuenta">
             {% if user.is_authenticated %}
             <form method="post" action="{% url 'logout' %}">
               {% csrf_token %}
-              <button type="submit" id="logbtn"><i class="bi bi-person-x" style="color:rgb(67, 68, 68);"></i></button>
+              <button type="submit" class="btn btn-transparent"><i class="bi bi-person-x" style="color:rgb(67, 68, 68);"></i></button>
             </form>
             {% else %}
               <a href="{% url 'login' %}"><i class="bi bi-person" style="color:rgb(67, 68, 68);"></i></a>

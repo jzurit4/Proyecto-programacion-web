@@ -62,6 +62,21 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'home' %}">Novedades</a>
         </li>
+        {% if perms.app.add_libro %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+              Administracion
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'listar_productos' %}">listado producto</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="{% url 'agregar_producto' %}">agregar producto</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+            {% endif %}
       </ul>
       <div class="iconos">
         <li class="cuenta">
