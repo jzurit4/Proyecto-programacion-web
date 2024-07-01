@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'app/CSS/miCss.css' %}">
+  <link rel="stylesheet" href="{% static 'app/CSS/style.css' %}">
   <link rel="stylesheet" href="{% static 'app/JS/carrito.js' %}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <title>Literatura Chilena</title>
+  
+  <title>Registrarse</title>
   <link rel="icon" href="{% static 'app/imagenes/Logo.png' %}">
 </head>
 
@@ -63,16 +64,16 @@
           </li>
         </ul>
         <div class="iconos">
-          <li class="cuenta">
-            {% if user.is_authenticated %}
-            <form method="post" action="{% url 'logout' %}">
-              {% csrf_token %}
-              <button type="submit" id="logbtn"><i class="bi bi-person-x" style="color:rgb(67, 68, 68);"></i></button>
-            </form>
-            {% else %}
-              <a href="{% url 'login' %}"><i class="bi bi-person" style="color:rgb(67, 68, 68);"></i></a>
-            {% endif %}
-          </li>
+            <li class="cuenta">
+                {% if user.is_authenticated %}
+                <form method="post" action="{% url 'logout' %}">
+                  {% csrf_token %}
+                  <button type="submit" id="logbtn"><i class="bi bi-person-x" style="color:rgb(67, 68, 68);"></i></button>
+                </form>
+                {% else %}
+                  <a href="{% url 'login' %}"><i class="bi bi-person" style="color:rgb(67, 68, 68);"></i></a>
+                {% endif %}
+              </li>
           <li class="carro">
             <a href="#" id="carrito">
               <i class="bi bi-cart2" style="color:rgb(67, 68, 68);">
@@ -101,96 +102,47 @@
     </div>
   </nav>
   <!--fin navbar-->
-    <!--cards-->
-    <div class="containers">
-      <center>
-        <h1 class="texto">Literatura Chilena</h1>
-      </center>
-      <div class="card__container" id="lista-compra">
-        <article class="card__article">
-          <img src="{% static 'app/imagenes/el-obsceno-pajaro-de-la-noche (1).jpg' %}" alt="" class="card__img">
-  
-          <div class="card__data">
-            <span class="card__description">José Donoso</span>
-            <h2 class="card__title">El obsceno pájaro de la noche</h2>
-            <p class="precio">$11.000</p>
-            <a href="#" class="card__button">Mas info</a>
-            <button class="card__button2" data-id="1">add to cart</button>
-          </div>
-        </article>
-  
-        <article class="card__article">
-          <img src="{% static 'app/imagenes/pedro-lemebel-tengo-miedo-torero (1).jpg' %}" alt="" class="card__img">
-  
-          <div class="card__data">
-            <span class="card__description">Pedro Lemebel</span>
-            <h2 class="card__title">Tengo miedo torero</h2>
-            <p class="precio">$11.000</p>
-            <a href="#" class="card__button">Mas info</a>
-            <button class="card__button2" data-id="2">add to cart</button>
-          </div>
-        </article>
-  
-        <article class="card__article">
-          <img src="{% static 'app/imagenes/la-casa-de-los-espiritus (1).jpg' %}" alt="" class="card__img">
-  
-          <div class="card__data">
-            <span class="card__description">Isabel Allende</span>
-            <h2 class="card__title">La casa de los espiritus</h2>
-            <p class="precio">$11.000</p>
-            <a href="#" class="card__button">Mas info</a>
-            <button class="card__button2" data-id="3">add to cart</button>
-          </div>
-        </article>
-      </div>
-    </div>
-    <!--fin cards-->
-  <!--Footer-->
-  <footer class="footer">
+    <br>
+    <!--login-->
+    {% load crispy_forms_tags %}
     <div class="container">
-      <div class="footer-row">
-        <div class="footer-links">
-          <h4>Empresa</h4>
-          <ul>
-            <li><a href="{% url 'Nosotros' %}">Nosotros</a></li>
-            <li><a href="#">Nuestros servicios</a></li>
-            <li><a href="#">Politica de privacidad</a></li>
-            <li><a href="{% url 'formulario' %}">Afiliate</a></li>
-          </ul>
+        <br><br><br><br>
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        
+                            <h2>Registro de usuario</h2>
+                            <hr>
+                            <form action="" method="post">
+
+                                {% csrf_token %}
+                                {{form | crispy }}
+                                <hr>
+                                
+                                <div class="d-flex justify-content-end">
+                                    <a class="btn btn-secondary" href="{%url 'login' %}" role="button">Iniciar Sesion</a>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a class="btn btn-secondary" href="{%url 'home' %}" role="button">Volver</a>
+                                    &nbsp;
+                                    <input class="btn btn-success" type="submit" name="btnEnviar" id="btnEnviar" value="Ingresar">
+                                  </div>
+                            </form>
+                           
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="footer-links">
-          <h4>Ayuda</h4>
-          <ul>
-            <li><a href="#">Preguntas Frecuentes</a></li>
-            <li><a href="#">Compras</a></li>
-            <li><a href="#">Envios</a></li>
-            <li><a href="#">Pago</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4>Encuentranos</h4>
-          <ul>
-            <li><a href="{% url 'ubicacion' %}">Av.Valparaiso 429</a></li>
-            <li><a href="#">librarium@gmail.com</a></li>
-            <li><a href="#"></a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4>Siguenos</h4>
-          <div class="social-link">
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-whatsapp"></i></a>
-            <a href="#"><i class="bi bi-twitter-x"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-          </div>
-        </div>
-      </div>
     </div>
-  </footer>
+    <br>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script src="{% static 'app/JS/carrito.js' %}"></script>
 </body>
-
 </html>

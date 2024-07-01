@@ -42,7 +42,7 @@ body{
 }
 
 .carro i:hover > .buy-card{
-    width: 400px;
+    width: 800px;
     height: 500px;
     position: absolute;
     right: 100px;
@@ -297,6 +297,8 @@ body{
 }
 
 /* fn cr*/
+
+
 
 /*cartas responsivas*/
 @media screen and (max-width: 320px) {

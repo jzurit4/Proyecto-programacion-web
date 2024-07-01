@@ -62,10 +62,41 @@
           <li class="nav-item">
             <a class="nav-link" href="#Novedades">Novedades</a>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+              Administracion
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'listar_productos' %}">Modificar productos</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="{% url 'Lit_Chilena' %}">Lit. Chilena</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="{% url 'Crec_Personal' %}">Crec. Personal</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="{% url 'novelas' %}">Novelas</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="{% url 'poesia' %}">Poesia</a></li>
+            </ul>
+          </li>
         </ul>
         <div class="iconos">
           <li class="cuenta">
-            <a href="{% url 'cuenta' %}"><i class="bi bi-person" style="color:rgb(67, 68, 68);"></i></a>
+            {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" id="logbtn"><i class="bi bi-person-x" style="color:rgb(67, 68, 68);"></i></button>
+            </form>
+            {% else %}
+              <a href="{% url 'login' %}"><i class="bi bi-person" style="color:rgb(67, 68, 68);"></i></a>
+            {% endif %}
           </li>
           <li class="carro">
             <a href="#" id="carrito">

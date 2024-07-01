@@ -29,7 +29,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"></a>
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}"></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'home' %}">Ofertas</a>
@@ -56,35 +56,22 @@
                 <hr class="dropdown-divider">
               </li>
               <li><a class="dropdown-item" href="{% url 'poesia' %}">Poesia</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Clasicos</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Cuentos</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Mangas</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Historia y Geografia</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Deporte</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Novedades</a>
+            <a class="nav-link" href="{% url 'home' %}">Novedades</a>
           </li>
         </ul>
         <div class="iconos">
           <li class="cuenta">
-            <a href="{% url 'cuenta' %}"><i class="bi bi-person" style="color:rgb(67, 68, 68);"></i></a>
+            {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" id="logbtn"><i class="bi bi-person-x" style="color:rgb(67, 68, 68);"></i></button>
+            </form>
+            {% else %}
+              <a href="{% url 'login' %}"><i class="bi bi-person" style="color:rgb(67, 68, 68);"></i></a>
+            {% endif %}
           </li>
           <li class="carro">
             <a href="#" id="carrito">
@@ -114,6 +101,7 @@
     </div>
   </nav>
   <!--fin navbar-->
+    <br>
   <!--cards-->
   <div class="containers">
     <center>

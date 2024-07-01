@@ -17,117 +17,118 @@
 </head>
 
 <body>
-  <!--nav bar-->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}">
-        <img src="{% static 'app/imagenes/Logo.png' %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-        Librarium
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'home' %}">Ofertas</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-              Categorias
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{% url 'juvenil' %}">Infantil y Juvenil</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="{% url 'Lit_Chilena' %}">Lit. Chilena</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="{% url 'Crec_Personal' %}">Crec. Personal</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="{% url 'novelas' %}">Novelas</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="{% url 'poesia' %}">Poesia</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Clasicos</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Cuentos</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Mangas</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Historia y Geografia</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Deporte</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Novedades</a>
-          </li>
-        </ul>
-        <div class="iconos">
-          <li class="cuenta">
-            <a href="{% url 'cuenta' %}"><i class="bi bi-person" style="color:rgb(67, 68, 68);"></i></a>
-          </li>
-          <li class="carro">
-            <a href="#" id="carrito">
-              <i class="bi bi-cart2" style="color:rgb(67, 68, 68);">
-                  <div class="buy-card">
-                    <ul class="nav-card">
-                        <li id="carro__li">Imagen</li>
-                        <li id="carro__li">Nombre</li>
-                        <li id="carro__li">Precio</li>
-                        <li id="carro__li">Cantidad</li>
-                    </ul>
-                    <div class="lista-de-compras">
-                      
-                    </div>
-                    <button id="vaciar_carro">VACIAR CARRITO</button>
+<!--nav bar-->
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img src="{% static 'app/imagenes/Logo.png' %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+      Librarium
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Ofertas</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+            Categorias
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'juvenil' %}">Infantil y Juvenil</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="{% url 'Lit_Chilena' %}">Lit. Chilena</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="{% url 'Crec_Personal' %}">Crec. Personal</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="{% url 'novelas' %}">Novelas</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="{% url 'poesia' %}">Poesia</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Novedades</a>
+        </li>
+      </ul>
+      <div class="iconos">
+        <li class="cuenta">
+          {% if user.is_authenticated %}
+          <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" id="logbtn"><i class="bi bi-person-x" style="color:rgb(67, 68, 68);"></i></button>
+          </form>
+          {% else %}
+            <a href="{% url 'login' %}"><i class="bi bi-person" style="color:rgb(67, 68, 68);"></i></a>
+          {% endif %}
+        </li>
+        <li class="carro">
+          <a href="#" id="carrito">
+            <i class="bi bi-cart2" style="color:rgb(67, 68, 68);">
+                <div class="buy-card">
+                  <ul class="nav-card">
+                      <li id="carro__li">Imagen</li>
+                      <li id="carro__li">Nombre</li>
+                      <li id="carro__li">Precio</li>
+                      <li id="carro__li">Cantidad</li>
+                  </ul>
+                  <div class="lista-de-compras">
+                    
                   </div>
-              </i>
-            </a>
-          </li>
-        </div>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Buscar Titulo, Autor, Isbn..."
-            aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
+                  <button id="vaciar_carro">VACIAR CARRITO</button>
+                </div>
+            </i>
+          </a>
+        </li>
       </div>
-    </div>
-  </nav>
-  <!--fin navbar-->
-  <div class="container">
-
-      <form action="" id="formulario_contacto" method="post">
-
-        {% csrf_token %}
-        {{form}}
-        <br>
-          <input class="btn btn-primary" type="submit" name="btnEnviar" id="btnEnviar" value="Enviar">
-        </div>
-        <br>
-        {{mensaje}}
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar Titulo, Autor, Isbn..."
+          aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
       </form>
+    </div>
+  </div>
+</nav>
+<!--fin navbar-->
+{% load crispy_forms_tags %}
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-body">
+            <center>
+              <h2>Contactanos!</h2>
+              <hr>
+              <form action="" class="" method="post">
+                {% csrf_token %}
+                {{form | crispy }}
+                <br>
+                <div class="d-flex justify-content-end">
+                  <input class="btn btn-secondary" type="reset"value="Cancelar">
+                  &nbsp;
+                  <input class="btn btn-primary" type="submit" name="btnEnviar" id="btnEnviar" value="Enviar">
+                </div>
+                
+                <br>
+                {{mensaje}}
+              </form>
+            </center>
+          </div>
+        </div>            
+      </div>
     </div>  
   </div>
   <!--Footer-->
