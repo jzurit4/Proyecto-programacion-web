@@ -93,20 +93,9 @@
             {% endif %}
           </li>
           <li class="carro">
-            <a href="#" id="carrito">
+            <a href="{% url 'comprar' %}" id="carrito">
               <i class="bi bi-cart2" style="color:rgb(67, 68, 68);">
-                  <div class="buy-card">
-                    <ul class="nav-card">
-                        <li id="carro__li">Imagen</li>
-                        <li id="carro__li">Nombre</li>
-                        <li id="carro__li">Precio</li>
-                        <li id="carro__li">Cantidad</li>
-                    </ul>
-                    <div class="lista-de-compras">
-                      
-                    </div>
-                    <button id="vaciar_carro">VACIAR CARRITO</button>
-                  </div>
+                 
               </i>
             </a>
           </li>
@@ -146,12 +135,15 @@
     <!--fc-->
   <nav>
     <!--cards-->
+    
     <div class="containers">
+      
       <center>
         <h1 class="texto">Ofertas</h1>
       </center>
       {%load humanize%}
       
+
       <div class="card__container" id="lista-compra">
         <article class="card__article">
           <img src="{% static 'app/imagenes/invierte en ti.jpg' %}" alt="" class="card__img">
@@ -197,6 +189,13 @@
       <center>
         <h1 class="texto">Novedades</h1>
       </center>
+      <div class="conteiner">
+        <div style=" float:right;">
+          
+          {% include "carro/widget.html" %}
+        </div>
+      </div>
+      <br>
       {%load humanize%}
       
       <div class="card__container" id="lista-compra">
@@ -209,7 +208,8 @@
                 <h2 class="card__title">{{p.titulo | title}}</h2>
                 <p class="precio">${{p.precio | intcomma}}</p>
                 <a href="{% url 'libro1' %}" class="card__button">Mas info</a>
-                <button class="card__button2" data-id="1">add to cart</button>
+                <a href="{% url 'carro:agregar' p.id %}" class="card__button2">add to cart</a>
+            
               </div>
             </article>
         {% endfor %}
